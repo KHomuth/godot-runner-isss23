@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cac306r5nm5cx"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_ajmtl"]
+[ext_resource type="Texture2D" uid="uid://bpq4l661cob5s" path="res://DinoPlayer.png" id="2_jttbl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki6em"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv8pe"]
+size = Vector2(25, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u85pj"]
+size = Vector2(880, 20)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("1_ajmtl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(82, 354)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_jttbl")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(575, 325)
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+position = Vector2(79, 365)
+target_position = Vector2(0, 20)
+
+[node name="HitBox" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HitBox"]
+position = Vector2(79, 355)
+shape = SubResource("RectangleShape2D_ki6em")
+
+[node name="HeadBox" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HeadBox"]
+position = Vector2(92.5, 336)
+shape = SubResource("RectangleShape2D_sv8pe")
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Areas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/StaticBody2D"]
+position = Vector2(443, 384)
+rotation = -0.120428
+shape = SubResource("RectangleShape2D_u85pj")
