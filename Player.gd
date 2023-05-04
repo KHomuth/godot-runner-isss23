@@ -23,7 +23,7 @@ func _physics_process(delta):
 		var orig = ray.global_transform.origin
 		var coll = ray.get_collision_point()
 		var dist = abs(orig.y - coll.y)
-		var depth = abs(ray.cast_to.y - dist)
+		#var depth = abs(ray.cast_to.y - dist)
 		
 		grounded = true
 		
