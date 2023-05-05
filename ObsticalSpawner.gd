@@ -24,6 +24,7 @@ func _createObsitical():
 	rigidBody2d.gravity_scale = 0
 	rigidBody2d.linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
 	rigidBody2d.linear_damp = 0
+	rigidBody2d.lock_rotation = true
 	
 	return rigidBody2d
 
