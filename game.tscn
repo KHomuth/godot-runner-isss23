@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cac306r5nm5cx"]
+[gd_scene load_steps=8 format=3 uid="uid://cac306r5nm5cx"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_wv4ck"]
 [ext_resource type="Texture2D" uid="uid://bpq4l661cob5s" path="res://DinoPlayer.png" id="2_jttbl"]
+[ext_resource type="Script" path="res://score.gd" id="3_sjwee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pwbg"]
 size = Vector2(45, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u85pj"]
 size = Vector2(880, 20)
+
+[sub_resource type="FontVariation" id="FontVariation_cad4c"]
+
+[sub_resource type="FontVariation" id="FontVariation_1asrt"]
+base_font = SubResource("FontVariation_cad4c")
 
 [node name="Game" type="Node2D"]
 
@@ -30,3 +36,29 @@ texture = ExtResource("2_jttbl")
 position = Vector2(443, 384)
 rotation = -0.120428
 shape = SubResource("RectangleShape2D_u85pj")
+
+[node name="Score" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Score"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 649.0
+
+[node name="score" type="Label" parent="Score/Control"]
+modulate = Color(0.494118, 0.494118, 0.494118, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 22.0
+offset_right = 193.0
+offset_bottom = 60.0
+theme_override_fonts/font = SubResource("FontVariation_1asrt")
+theme_override_font_sizes/font_size = 25
+text = "0"
+script = ExtResource("3_sjwee")
+
+[node name="Scoretimer" type="Timer" parent="Score/Control/score"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Score/Control/score/Scoretimer" to="Score/Control/score" method="_on_scoretimer_timeout"]
