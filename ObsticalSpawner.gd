@@ -27,7 +27,6 @@ func _createObsitical():
 	rigidBody2d.linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
 	rigidBody2d.linear_damp = 0
 	rigidBody2d.lock_rotation = true
-	rigidBody2d
 	return rigidBody2d
 
 # Called when the node enters the scene tree for the first time.
@@ -40,7 +39,6 @@ func _ready():
 func _process(delta):
 	
 	if(timer.is_stopped()):
-		
 		obsticles.push_front(_createObsitical())
 		obsticles.front().linear_velocity = Vector2(-10000 * delta,0)  
 		add_child(obsticles.front())
