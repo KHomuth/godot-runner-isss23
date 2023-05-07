@@ -44,7 +44,10 @@ func _process(delta):
 		obsticles.push_front(_createObsitical())
 		obsticles.front().linear_velocity = Vector2(-10000 * speed * delta,0)  
 		add_child(obsticles.front())
-		timer.start(randi_range(3,7))
+		
+		speed = speed * 1.03
+		
+		timer.start(randi_range(2,5))
 		print(obsticles.size())
 	
 	if(obsticles.size() > 4):
