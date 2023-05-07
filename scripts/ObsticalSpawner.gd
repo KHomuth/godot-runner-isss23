@@ -1,12 +1,9 @@
 extends Node
 
-var texture = preload("res://icon.svg")
+var texture = preload("res://sprites/icon.svg")
 var obsticles = []
 var timer = Timer.new()
 var speed = 5
-
-func _onEnterArea(body):
-	print(body)
 	
 func _createObsitical():
 	var rigidBody2d = RigidBody2D.new()
@@ -28,6 +25,7 @@ func _createObsitical():
 	rigidBody2d.gravity_scale = 0
 	rigidBody2d.linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
 	rigidBody2d.linear_damp = 0
+	
 	rigidBody2d.lock_rotation = true
 	
 	rigidBody2d.add_to_group("obstical")
@@ -46,7 +44,7 @@ func _process(delta):
 		obsticles.push_front(_createObsitical())
 		obsticles.front().linear_velocity = Vector2(-10000 * speed * delta,0)  
 		add_child(obsticles.front())
-		timer.start(randi_range(10,12))
+		timer.start(randi_range(3,7))
 		print(obsticles.size())
 	
 	if(obsticles.size() > 4):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chppxyo2q3xjr"
-path="res://.godot/imported/dino_game-sprites.png-70a213f26f6cc0cb37eb674942929924.ctex"
+uid="uid://bpq4l661cob5s"
+path="res://.godot/imported/DinoPlayer.png-9ffc226b593a7bf8e8039a1984f13dc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dino_game-sprites.png"
-dest_files=["res://.godot/imported/dino_game-sprites.png-70a213f26f6cc0cb37eb674942929924.ctex"]
+source_file="res://sprites/DinoPlayer.png"
+dest_files=["res://.godot/imported/DinoPlayer.png-9ffc226b593a7bf8e8039a1984f13dc7.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

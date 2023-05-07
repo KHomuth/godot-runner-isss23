@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="DinoGame"
-run/main_scene="res://game.tscn"
+run/main_scene="res://scences/MainScene.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://scripts/Global.gd"
 
 [rendering]
 

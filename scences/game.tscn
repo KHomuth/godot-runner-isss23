@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cac306r5nm5cx"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_wv4ck"]
-[ext_resource type="Texture2D" uid="uid://bpq4l661cob5s" path="res://DinoPlayer.png" id="2_jttbl"]
-[ext_resource type="Script" path="res://score.gd" id="3_sjwee"]
+[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_wv4ck"]
+[ext_resource type="Texture2D" uid="uid://bpq4l661cob5s" path="res://sprites/DinoPlayer.png" id="2_jttbl"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="3_sjwee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pwbg"]
 size = Vector2(45, 50)

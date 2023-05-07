@@ -13,4 +13,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	print(body.is_in_group("obstical"))
-	pass # Replace with function body.
+	pass # Replace with function body
