@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://do8b6v0oj7vlt"]
+[gd_scene load_steps=5 format=3 uid="uid://do8b6v0oj7vlt"]
 
 [ext_resource type="Script" path="res://ObsticalSpawner.gd" id="1_x03ar"]
+[ext_resource type="Texture2D" uid="uid://bpq4l661cob5s" path="res://DinoPlayer.png" id="2_5omxi"]
+[ext_resource type="Script" path="res://Area2D.gd" id="2_ep6co"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kgur"]
+size = Vector2(148, 2535)
 
 [node name="ObsticalTest" type="Node2D"]
 
@@ -8,3 +13,17 @@
 script = ExtResource("1_x03ar")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_ep6co")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, 7.75)
+scale = Vector2(1.294, 0.877953)
+texture = ExtResource("2_5omxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 255.5)
+shape = SubResource("RectangleShape2D_7kgur")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
