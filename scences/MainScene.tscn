@@ -1,13 +1,79 @@
-[gd_scene load_steps=7 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=18 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
-[ext_resource type="Texture2D" uid="uid://bpq4l661cob5s" path="res://sprites/DinoPlayer.png" id="2_0nc42"]
+[ext_resource type="Texture2D" uid="uid://dqlnlix0kkhkw" path="res://sprites/player/run cycle 48x48.png" id="2_qh6ec"]
 [ext_resource type="Script" path="res://scripts/ObsticalSpawner.gd" id="3_og82p"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_x8284"]
+[ext_resource type="Texture2D" uid="uid://g7gundn6epcx" path="res://sprites/snowymountains.png" id="5_4vrj7"]
+[ext_resource type="Texture2D" uid="uid://di0vhfd4cg2v0" path="res://sprites/white.png" id="6_d7hg2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q1xx"]
 radius = 58.0
 height = 126.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j54p"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re5ay"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djxnd"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kb8l"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umua2"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpbjj"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e0vk"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt6qp"]
+atlas = ExtResource("2_qh6ec")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b028r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j54p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re5ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djxnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kb8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umua2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpbjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e0vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt6qp")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pippq"]
 size = Vector2(880, 20)
@@ -18,11 +84,15 @@ size = Vector2(880, 20)
 position = Vector2(-250, 70)
 script = ExtResource("1_8xh6m")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_0nc42")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_4q1xx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_b028r")
+animation = &"run"
+frame = 2
+frame_progress = 0.0151217
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -60,5 +130,15 @@ autostart = true
 [node name="ObsitcalSpawner" type="Node2D" parent="."]
 position = Vector2(0, 70)
 script = ExtResource("3_og82p")
+
+[node name="Snowymountains" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(19, -366)
+texture = ExtResource("5_4vrj7")
+
+[node name="White" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(19, 183)
+texture = ExtResource("6_d7hg2")
 
 [connection signal="timeout" from="Score/Control/score/scoreTimer" to="Score/Control/score" method="_on_score_timer_timeout"]
