@@ -4,10 +4,13 @@ const JUMP_VELOCITY = -600.0
 
 signal hit
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity = 980.0
 var double_jump = false
+
+@onready var _animated_sprite = $AnimatedSprite2D
+
+func _ready():
+	_animated_sprite.play("run")
 
 func _physics_process(delta):
 	# Add the gravity.
