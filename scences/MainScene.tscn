@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=20 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
 [ext_resource type="Texture2D" uid="uid://dqlnlix0kkhkw" path="res://sprites/player/run cycle 48x48.png" id="2_qh6ec"]
 [ext_resource type="Script" path="res://scripts/ObsticalSpawner.gd" id="3_og82p"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_x8284"]
+[ext_resource type="Script" path="res://scences/Camera2D.gd" id="4_8hipw"]
 [ext_resource type="Texture2D" uid="uid://g7gundn6epcx" path="res://sprites/snowymountains.png" id="5_4vrj7"]
 [ext_resource type="Texture2D" uid="uid://di0vhfd4cg2v0" path="res://sprites/white.png" id="6_d7hg2"]
 
@@ -78,6 +79,47 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pippq"]
 size = Vector2(880, 20)
 
+[sub_resource type="FontFile" id="FontFile_248up"]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/2/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/3/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -114,10 +156,12 @@ offset_bottom = 322.0
 
 [node name="score" type="Label" parent="Score/Control"]
 layout_mode = 0
-offset_left = 479.0
-offset_top = 189.0
-offset_right = 671.0
-offset_bottom = 215.0
+offset_left = 45.0
+offset_top = 54.0
+offset_right = 237.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_248up")
 text = "0"
 script = ExtResource("3_x8284")
 
@@ -126,6 +170,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_8hipw")
 
 [node name="ObsitcalSpawner" type="Node2D" parent="."]
 position = Vector2(0, 70)

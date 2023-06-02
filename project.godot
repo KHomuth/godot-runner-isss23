@@ -19,9 +19,9 @@ config/icon="res://sprites/icon.svg"
 
 Global="*res://scripts/Global.gd"
 
-[physics]
+[display]
 
-2d/default_gravity=1200.0
+window/stretch/mode="canvas_items"
 
 [rendering]
 
