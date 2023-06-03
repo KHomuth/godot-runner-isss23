@@ -1,19 +1,19 @@
 [gd_scene load_steps=19 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
-[ext_resource type="Texture2D" uid="uid://dsvvnlbo1t8y6" path="res://sprites/player2/run-1.png" id="2_hwc63"]
+[ext_resource type="Texture2D" uid="uid://dsvvnlbo1t8y6" path="res://sprites/player2/run-1.png" id="2_1ppwx"]
+[ext_resource type="Texture2D" uid="uid://cr0uy4hkjq2oj" path="res://sprites/player2/run-2.png" id="3_o74oc"]
 [ext_resource type="Script" path="res://scripts/ObsticalSpawner.gd" id="3_og82p"]
-[ext_resource type="Texture2D" uid="uid://cr0uy4hkjq2oj" path="res://sprites/player2/run-2.png" id="3_qp5uk"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_x8284"]
 [ext_resource type="Script" path="res://scences/Camera2D.gd" id="4_8hipw"]
-[ext_resource type="Texture2D" uid="uid://cyi5gb83uf71n" path="res://sprites/player2/run-3.png" id="4_rqp7n"]
+[ext_resource type="Texture2D" uid="uid://cyi5gb83uf71n" path="res://sprites/player2/run-3.png" id="4_pvur6"]
 [ext_resource type="Texture2D" uid="uid://g7gundn6epcx" path="res://sprites/snowymountains.png" id="5_4vrj7"]
-[ext_resource type="Texture2D" uid="uid://b00igua5rams4" path="res://sprites/player2/run-4.png" id="5_t4lvh"]
+[ext_resource type="Texture2D" uid="uid://b00igua5rams4" path="res://sprites/player2/run-4.png" id="5_rhdte"]
 [ext_resource type="Texture2D" uid="uid://di0vhfd4cg2v0" path="res://sprites/white.png" id="6_d7hg2"]
-[ext_resource type="Texture2D" uid="uid://dvdby5gtywp1y" path="res://sprites/player2/run-5.png" id="6_tacl0"]
-[ext_resource type="Texture2D" uid="uid://bnwkgji8ucats" path="res://sprites/player2/run-6.png" id="7_52yaj"]
-[ext_resource type="Texture2D" uid="uid://p3wil1ony32w" path="res://sprites/player2/run-7.png" id="8_o8wix"]
-[ext_resource type="Texture2D" uid="uid://xx6q7qcds0b3" path="res://sprites/player2/run-8.png" id="9_usld3"]
+[ext_resource type="Texture2D" uid="uid://dvdby5gtywp1y" path="res://sprites/player2/run-5.png" id="6_u0jhs"]
+[ext_resource type="Texture2D" uid="uid://bnwkgji8ucats" path="res://sprites/player2/run-6.png" id="7_qq3ea"]
+[ext_resource type="Texture2D" uid="uid://p3wil1ony32w" path="res://sprites/player2/run-7.png" id="8_jhhb7"]
+[ext_resource type="Texture2D" uid="uid://xx6q7qcds0b3" path="res://sprites/player2/run-8.png" id="9_7c13n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q1xx"]
 radius = 58.0
@@ -23,28 +23,28 @@ height = 126.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hwc63")
+"texture": ExtResource("2_1ppwx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qp5uk")
+"texture": ExtResource("3_o74oc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_rqp7n")
+"texture": ExtResource("4_pvur6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_t4lvh")
+"texture": ExtResource("5_rhdte")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_tacl0")
+"texture": ExtResource("6_u0jhs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_52yaj")
+"texture": ExtResource("7_qq3ea")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_o8wix")
+"texture": ExtResource("8_jhhb7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_usld3")
+"texture": ExtResource("9_7c13n")
 }],
 "loop": true,
 "name": &"run",
