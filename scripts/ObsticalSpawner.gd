@@ -8,8 +8,11 @@ var spawnSpeedBottom = 4
 var spawnSpeedTop = 7
 var speed = 4
 var alreadySpawned = 0
+var obsticleLimit = 3
+var cScale = Vector2(-350, -200)
+var bScale = Vector2(-100, -150)
 	
-func _createObsitical(texture, scale = Vector2(1,1), flip = false):
+func _createObsitical(texture, scale = Vector2(1,1),shapeScale = Vector2(1,1), flip = false):
 	var rigidBody2d = RigidBody2D.new()
 	
 	var sprite2d = Sprite2D.new()
@@ -20,7 +23,8 @@ func _createObsitical(texture, scale = Vector2(1,1), flip = false):
 	var colisionShape2d = CollisionShape2D.new()
 	colisionShape2d.debug_color = Color(33,33,33,50)
 	var shape = RectangleShape2D.new()
-	shape.size = texture.get_size()
+	shape.size = texture.get_size() + shapeScale
+	print(shape.size)
 	
 	colisionShape2d.shape = shape
 	colisionShape2d.scale = scale
@@ -49,28 +53,92 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(timer.is_stopped()):
-		var randomObstical = randi_range(0,1)
+	if(timer.is_stopped()):	
+		
+		if alreadySpawned >= 5:
+			obsticleLimit = 5
+		
+		var randomObstical = randi_range(0,obsticleLimit)
 		
 		if randomObstical == 0:
-			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15)))
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15),cScale))
 			obsticles.front().position = Vector2(1000, 2)
 			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
 			add_child(obsticles.front())
 		
-		if randomObstical == 1:
-			obsticles.push_front(_createObsitical(textureBird, Vector2(0.2,0.2), true))
-			obsticles.front().position = Vector2(1000, -200)
+		elif randomObstical == 1:
+			obsticles.push_front(_createObsitical(textureBird, Vector2(0.2,0.2), bScale,true))
+			obsticles.front().position = Vector2(1000, -140)
 			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
 			add_child(obsticles.front())
 		
+		elif randomObstical == 2:
+			obsticles.push_front(_createObsitical(textureBird, Vector2(0.2,0.2), bScale,true))
+			obsticles.front().position = Vector2(1000, -300)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+		elif randomObstical == 3:
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.23,0.23), cScale))
+			obsticles.front().position = Vector2(1000, -30)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+		elif randomObstical == 3:
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.23,0.23), cScale))
+			obsticles.front().position = Vector2(1000, -30)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+		elif randomObstical == 4:
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15), cScale))
+			obsticles.front().position = Vector2(1000, -2)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15), cScale))
+			obsticles.front().position = Vector2(1100, -2)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15),cScale))
+			obsticles.front().position = Vector2(1200, -2)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+		elif randomObstical == 5:
+			obsticles.push_front(_createObsitical(textureBird, Vector2(0.2,0.2), bScale,true))
+			obsticles.front().position = Vector2(1000, -140)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+			obsticles.push_front(_createObsitical(textureBird, Vector2(0.2,0.2), bScale,true))
+			obsticles.front().position = Vector2(1000, -300)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+		
+		elif randomObstical == 6:
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15), cScale))
+			obsticles.front().position = Vector2(1000, -2)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+			obsticles.push_front(_createObsitical(textureBird, Vector2(0.2,0.2), bScale,true))
+			obsticles.front().position = Vector2(1100, -140)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
+			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15),cScale))
+			obsticles.front().position = Vector2(1200, -2)
+			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			add_child(obsticles.front())
+			
 		alreadySpawned = alreadySpawned + 1
-		print(alreadySpawned)
 		
 		if alreadySpawned % 5 == 4:
 			speed = speed + 0.2
-			spawnSpeedBottom = spawnSpeedBottom * 0.985
-			spawnSpeedTop = spawnSpeedTop * 0.985
+			spawnSpeedBottom = spawnSpeedBottom * 0.95
+			spawnSpeedTop = spawnSpeedTop * 0.95
 		
 		timer.start(randi_range(spawnSpeedBottom,spawnSpeedTop))
 	
