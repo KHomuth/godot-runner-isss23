@@ -52,7 +52,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(obsticles.size())
 	if(timer.is_stopped()):	
 		
 		if alreadySpawned >= 5:
