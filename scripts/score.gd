@@ -1,5 +1,7 @@
 extends Label
 
+func _ready():
+	Global.score = 0
 
 func _process(delta):
 	

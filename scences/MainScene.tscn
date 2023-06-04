@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=21 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
 [ext_resource type="Texture2D" uid="uid://dsvvnlbo1t8y6" path="res://sprites/player2/run-1.png" id="2_1ppwx"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bnwkgji8ucats" path="res://sprites/player2/run-6.png" id="7_qq3ea"]
 [ext_resource type="Texture2D" uid="uid://p3wil1ony32w" path="res://sprites/player2/run-7.png" id="8_jhhb7"]
 [ext_resource type="Texture2D" uid="uid://xx6q7qcds0b3" path="res://sprites/player2/run-8.png" id="9_7c13n"]
+[ext_resource type="Script" path="res://scripts/HealthBar.gd" id="11_x0jwl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q1xx"]
 radius = 58.0
@@ -1175,6 +1176,9 @@ cache/0/31/0/kerning_overrides/29/0 = Vector2(0, 0)
 cache/0/31/0/kerning_overrides/30/0 = Vector2(0, 0)
 cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf6pa"]
+bg_color = Color(0.996078, 0, 0.207843, 1)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -1226,6 +1230,17 @@ script = ExtResource("3_x8284")
 wait_time = 0.1
 autostart = true
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -465.0
+offset_top = -291.0
+offset_right = -341.0
+offset_bottom = -264.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_gf6pa")
+step = 50.0
+value = 100.0
+show_percentage = false
+script = ExtResource("11_x0jwl")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(93, -55)
 script = ExtResource("4_8hipw")
@@ -1244,4 +1259,24 @@ z_index = -2
 position = Vector2(19, 183)
 texture = ExtResource("6_d7hg2")
 
+[node name="Pause" type="Popup" parent="."]
+process_mode = 2
+initial_position = 2
+title = "Game Over"
+size = Vector2i(145, 106)
+
+[node name="Label" type="Label" parent="Pause"]
+offset_right = 122.0
+offset_bottom = 52.0
+text = "Game Over
+Your Score was:"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Pause"]
+offset_right = 87.0
+offset_bottom = 31.0
+text = "play again"
+
+[connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
+[connection signal="hit" from="CharacterBody2D" to="HealthBar" method="_on_character_body_2d_hit"]
 [connection signal="timeout" from="Score/Control/score/scoreTimer" to="Score/Control/score" method="_on_score_timer_timeout"]
