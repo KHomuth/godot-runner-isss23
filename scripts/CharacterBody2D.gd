@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal hit
+signal gameOver
 
 const JUMP_VELOCITY = -600.0
 
@@ -39,5 +40,7 @@ func _physics_process(delta):
 			health -= 50
 			hit.emit()
 		elif collision.get_collider().is_in_group("obstical") and health <= 50:
-			get_tree().reload_current_scene()
-			
+			collision.get_collider().queue_free()
+			health -= 50
+			hit.emit()
+			gameOver.emit()
