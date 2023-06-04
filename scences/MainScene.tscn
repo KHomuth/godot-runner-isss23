@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=22 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
 [ext_resource type="Texture2D" uid="uid://dsvvnlbo1t8y6" path="res://sprites/player2/run-1.png" id="2_1ppwx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://p3wil1ony32w" path="res://sprites/player2/run-7.png" id="8_jhhb7"]
 [ext_resource type="Texture2D" uid="uid://xx6q7qcds0b3" path="res://sprites/player2/run-8.png" id="9_7c13n"]
 [ext_resource type="Script" path="res://scripts/HealthBar.gd" id="11_x0jwl"]
+[ext_resource type="Script" path="res://scripts/Popup.gd" id="16_mvtah"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q1xx"]
 radius = 58.0
@@ -1259,24 +1260,77 @@ z_index = -2
 position = Vector2(19, 183)
 texture = ExtResource("6_d7hg2")
 
-[node name="Pause" type="Popup" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Popup" type="Popup" parent="."]
 process_mode = 2
-initial_position = 2
-title = "Game Over"
-size = Vector2i(145, 106)
+initial_position = 1
+size = Vector2i(100, 269)
+content_scale_mode = 2
+content_scale_aspect = 1
+script = ExtResource("16_mvtah")
 
-[node name="Label" type="Label" parent="Pause"]
-offset_right = 122.0
-offset_bottom = 52.0
-text = "Game Over
-Your Score was:"
-horizontal_alignment = 1
+[node name="MarginContainer" type="MarginContainer" parent="Popup"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
 
-[node name="Button" type="Button" parent="Pause"]
-offset_right = 87.0
-offset_bottom = 31.0
-text = "play again"
+[node name="Label" type="Label" parent="Popup/MarginContainer"]
+layout_mode = 2
 
+[node name="MarginContainer2" type="MarginContainer" parent="Popup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -20.0
+offset_right = 47.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Popup/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "NEW GAME"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Popup"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.5
+offset_top = -40.0
+offset_right = 20.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button2" type="Button" parent="Popup/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "MAIN MENU"
+
+[connection signal="gameOver" from="CharacterBody2D" to="Popup" method="_on_character_body_2d_game_over"]
 [connection signal="hit" from="CharacterBody2D" to="HealthBar" method="_on_character_body_2d_hit"]
 [connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
 [connection signal="timeout" from="Score/Control/score/scoreTimer" to="Score/Control/score" method="_on_score_timer_timeout"]
+[connection signal="pressed" from="Popup/MarginContainer2/Button" to="Popup" method="_on_button_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer3/Button2" to="Popup" method="_on_button_2_pressed"]
