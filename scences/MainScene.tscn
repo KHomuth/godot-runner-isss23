@@ -1277,6 +1277,6 @@ offset_right = 87.0
 offset_bottom = 31.0
 text = "play again"
 
-[connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
 [connection signal="hit" from="CharacterBody2D" to="HealthBar" method="_on_character_body_2d_hit"]
+[connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
 [connection signal="timeout" from="Score/Control/score/scoreTimer" to="Score/Control/score" method="_on_score_timer_timeout"]
