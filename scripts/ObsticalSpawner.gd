@@ -24,7 +24,6 @@ func _createObsitical(texture, scale = Vector2(1,1),shapeScale = Vector2(1,1), f
 	colisionShape2d.debug_color = Color(33,33,33,50)
 	var shape = RectangleShape2D.new()
 	shape.size = texture.get_size() + shapeScale
-	print(shape.size)
 	
 	colisionShape2d.shape = shape
 	colisionShape2d.scale = scale
@@ -53,6 +52,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(obsticles.size())
 	if(timer.is_stopped()):	
 		
 		if alreadySpawned >= 5:
@@ -84,11 +84,6 @@ func _process(delta):
 			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
 			add_child(obsticles.front())
 			
-		elif randomObstical == 3:
-			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.23,0.23), cScale))
-			obsticles.front().position = Vector2(1000, -30)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
-			add_child(obsticles.front())
 			
 		elif randomObstical == 4:
 			obsticles.push_front(_createObsitical(textureCactus, Vector2(0.15,0.15), cScale))
@@ -145,3 +140,7 @@ func _process(delta):
 	if(obsticles.size() > 4):
 		obsticles.back().queue_free()
 		obsticles.pop_back()
+
+
+func _on_character_body_2d_hit():
+	obsticles.clear()
