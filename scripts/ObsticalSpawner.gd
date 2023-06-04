@@ -4,8 +4,8 @@ var textureCactus = preload("res://sprites/cactus.png")
 var textureBird = preload("res://sprites/bird.png")
 var obsticles = []
 var timer = Timer.new()
-var spawnSpeedBottom = 4
-var spawnSpeedTop = 7
+var spawnSpeedBottom = 3
+var spawnSpeedTop = 5
 var speed = 4
 var alreadySpawned = 0
 var obsticleLimit = 3
@@ -52,11 +52,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(obsticles.size())
 	if(timer.is_stopped()):	
 		
 		if alreadySpawned >= 5:
-			obsticleLimit = 5
+			obsticleLimit = 6
 		
 		var randomObstical = randi_range(0,obsticleLimit)
 		
@@ -132,8 +131,14 @@ func _process(delta):
 		
 		if alreadySpawned % 5 == 4:
 			speed = speed + 0.2
-			spawnSpeedBottom = spawnSpeedBottom * 0.95
-			spawnSpeedTop = spawnSpeedTop * 0.95
+			spawnSpeedBottom = spawnSpeedBottom * 0.985
+			spawnSpeedTop = spawnSpeedTop * 0.985
+			
+		if spawnSpeedTop < 3:
+			spawnSpeedTop = 3
+			
+		if spawnSpeedBottom < 1.5:
+			spawnSpeedBottom = 1.5
 		
 		timer.start(randi_range(spawnSpeedBottom,spawnSpeedTop))
 	
