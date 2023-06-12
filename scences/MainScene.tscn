@@ -18,8 +18,8 @@
 [ext_resource type="Script" path="res://scripts/Popup.gd" id="16_mvtah"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q1xx"]
-radius = 58.0
-height = 126.0
+radius = 26.7749
+height = 103.706
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b028r"]
 animations = [{
@@ -1187,6 +1187,8 @@ position = Vector2(-250, 70)
 script = ExtResource("1_8xh6m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(5, 12)
+rotation = 0.397935
 shape = SubResource("CapsuleShape2D_4q1xx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
