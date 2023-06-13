@@ -9,6 +9,7 @@ var gravity = 980.0
 var double_jump = false
 var health = 100
 var timer = Timer.new()
+var lock_position = -250
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
@@ -19,6 +20,8 @@ func _ready():
 	
 
 func _physics_process(delta):
+	position.x = lock_position
+	velocity.x = 0
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
