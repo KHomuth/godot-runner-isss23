@@ -11,19 +11,26 @@ var alreadySpawned = 0
 var obsticleLimit = 3
 var cScale = Vector2(-350, -200)
 var bScale = Vector2(-100, -150)
-	
+
 func _createObsitical(texture, scale = Vector2(1,1),shapeScale = Vector2(1,1), flip = false):
 	var rigidBody2d = RigidBody2D.new()
-	
+
 	var sprite2d = Sprite2D.new()
+	
 	sprite2d.texture = texture
 	sprite2d.flip_h = flip
 	sprite2d.scale = scale
-
+	
 	var colisionShape2d = CollisionShape2D.new()
 	colisionShape2d.debug_color = Color(33,33,33,50)
-	var shape = RectangleShape2D.new()
-	shape.size = texture.get_size() + shapeScale
+	
+	# var shape = RectangleShape2D.new()
+	var shape = CapsuleShape2D.new()
+	
+	#shape.size = texture.get_size() + shapeScale
+	shape.height = texture.get_size().y + shapeScale.y
+	
+	shape.radius = 200
 	
 	colisionShape2d.shape = shape
 	colisionShape2d.scale = scale
