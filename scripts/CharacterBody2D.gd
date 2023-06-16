@@ -18,7 +18,10 @@ var lock_position = -250
 func _ready():
 	_animated_sprite.play("run")
 	add_child(timer)
+	add_child(hitTimer)
+	hitTimer.wait_time = .2
 	timer.one_shot = true;
+	hitTimer.one_shot = true
 	
 
 func _physics_process(delta):
@@ -51,11 +54,8 @@ func _physics_process(delta):
 				hit.emit()
 				timer.start(0.1)
 				$AnimatedSprite2D.modulate = Color(1,0,0)
-				timer.connect("timeout",reset_color)
-				timer.wait_time = .2
-				timer.one_shot = true
-				add_child(timer)
-				timer.start()
+				hitTimer.connect("timeout",reset_color)
+				hitTimer.start()
 				return
 				
 			elif collision.get_collider().is_in_group("obstical") and health <= 50:
