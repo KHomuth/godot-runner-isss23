@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cox730bosro2u"]
+[gd_scene load_steps=5 format=3 uid="uid://cox730bosro2u"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_wv4ck"]
+[ext_resource type="SpriteFrames" uid="uid://bxi2k4lc75h2h" path="res://animations/BatFly.tres" id="2_x10e6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pwbg"]
 size = Vector2(45, 50)
@@ -28,3 +29,7 @@ scale = Vector2(0.4, 0.4)
 position = Vector2(443, 384)
 rotation = -0.120428
 shape = SubResource("RectangleShape2D_u85pj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_x10e6")
+frame_progress = 0.225186

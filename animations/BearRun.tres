@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://qweds8nn75lu"]
+
+[ext_resource type="Texture2D" uid="uid://cpulwy1ksr788" path="res://sprites/enemys/bear/Bear_Run.png" id="1_3hbi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvype"]
+atlas = ExtResource("1_3hbi0")
+region = Rect2(0, 0, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0sgm"]
+atlas = ExtResource("1_3hbi0")
+region = Rect2(64, 0, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_518h8"]
+atlas = ExtResource("1_3hbi0")
+region = Rect2(128, 0, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpxgo"]
+atlas = ExtResource("1_3hbi0")
+region = Rect2(192, 0, 64, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5dal"]
+atlas = ExtResource("1_3hbi0")
+region = Rect2(256, 0, 64, 33)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvype")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0sgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_518h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpxgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5dal")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
