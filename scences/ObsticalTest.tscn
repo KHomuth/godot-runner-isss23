@@ -1,11 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://cha5l0xv7tu28"]
+[gd_scene load_steps=10 format=3 uid="uid://cha5l0xv7tu28"]
 
 [ext_resource type="Script" path="res://scripts/ObsticalSpawner.gd" id="1_j33xs"]
 [ext_resource type="Script" path="res://scripts/Area2D.gd" id="2_o7ncv"]
 [ext_resource type="Texture2D" uid="uid://bpq4l661cob5s" path="res://sprites/DinoPlayer.png" id="3_260j1"]
+[ext_resource type="Texture2D" uid="uid://bsasf67eef63h" path="res://sprites/enemys/bat/32x32-bat-sprite.png" id="4_dx7ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kgur"]
 size = Vector2(148, 2535)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ba4a"]
+atlas = ExtResource("4_dx7ua")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcrmw"]
+atlas = ExtResource("4_dx7ua")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee3sc"]
+atlas = ExtResource("4_dx7ua")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ettyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ba4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcrmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee3sc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="ObsticalTest" type="Node2D"]
 
@@ -25,5 +55,10 @@ texture = ExtResource("3_260j1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 255.5)
 shape = SubResource("RectangleShape2D_7kgur")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(174, -25)
+sprite_frames = SubResource("SpriteFrames_ettyn")
+frame_progress = 0.391501
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

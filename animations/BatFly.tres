@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bxi2k4lc75h2h"]
+
+[ext_resource type="Texture2D" uid="uid://bsasf67eef63h" path="res://sprites/enemys/bat/32x32-bat-sprite.png" id="1_jhtg5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v5pl"]
+atlas = ExtResource("1_jhtg5")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2qrq"]
+atlas = ExtResource("1_jhtg5")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wodw4"]
+atlas = ExtResource("1_jhtg5")
+region = Rect2(96, 96, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v5pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2qrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wodw4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
