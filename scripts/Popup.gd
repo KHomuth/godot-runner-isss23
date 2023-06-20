@@ -1,7 +1,6 @@
 extends Popup
 
 func _on_character_body_2d_game_over():
-	get_tree().paused = true
 	$MarginContainer/Label.set_horizontal_alignment(1)
 	$MarginContainer/Label.set_text('GAME OVER \nYour Score: ' + str(Global.score))
 	$MarginContainer.add_theme_constant_override("margin_top", 75)

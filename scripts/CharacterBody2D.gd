@@ -30,17 +30,20 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+		_animated_sprite.play("jump")
+	else:
+		double_jump = false
+		_animated_sprite.play("run")
+		
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():
+			
 			velocity.y = JUMP_VELOCITY
 		elif !double_jump:
+			
 			velocity.y = JUMP_VELOCITY
 			double_jump = true
-
-	if is_on_floor():
-		double_jump = false
 
 	move_and_slide()
 	
@@ -69,6 +72,6 @@ func _physics_process(delta):
 func reset_color():
 	$AnimatedSprite2D.modulate = _colorModulate
 
-
 func _on_game_over():
-	pass # Replace with function body.
+	_animated_sprite.play("dead")
+	get_tree().paused = true

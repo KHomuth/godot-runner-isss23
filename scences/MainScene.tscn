@@ -1,60 +1,153 @@
-[gd_scene load_steps=25 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=36 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
-[ext_resource type="Texture2D" uid="uid://dsvvnlbo1t8y6" path="res://sprites/player2/run-1.png" id="2_1ppwx"]
-[ext_resource type="Texture2D" uid="uid://cr0uy4hkjq2oj" path="res://sprites/player2/run-2.png" id="3_o74oc"]
+[ext_resource type="Texture2D" uid="uid://dobsudss4v7ja" path="res://sprites/player/Jump.png" id="2_4kjqc"]
+[ext_resource type="Texture2D" uid="uid://dlj5v8gr2ptly" path="res://sprites/player/Dead.png" id="2_ka43i"]
+[ext_resource type="Texture2D" uid="uid://5tlvgif3ncto" path="res://sprites/player/Run.png" id="2_vhve1"]
 [ext_resource type="Script" path="res://scripts/ObsticalSpawner.gd" id="3_og82p"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_x8284"]
 [ext_resource type="Script" path="res://scences/Camera2D.gd" id="4_8hipw"]
-[ext_resource type="Texture2D" uid="uid://cyi5gb83uf71n" path="res://sprites/player2/run-3.png" id="4_pvur6"]
 [ext_resource type="Texture2D" uid="uid://g7gundn6epcx" path="res://sprites/snowymountains.png" id="5_4vrj7"]
-[ext_resource type="Texture2D" uid="uid://b00igua5rams4" path="res://sprites/player2/run-4.png" id="5_rhdte"]
 [ext_resource type="Texture2D" uid="uid://di0vhfd4cg2v0" path="res://sprites/white.png" id="6_d7hg2"]
-[ext_resource type="Texture2D" uid="uid://dvdby5gtywp1y" path="res://sprites/player2/run-5.png" id="6_u0jhs"]
-[ext_resource type="Texture2D" uid="uid://bnwkgji8ucats" path="res://sprites/player2/run-6.png" id="7_qq3ea"]
-[ext_resource type="Texture2D" uid="uid://p3wil1ony32w" path="res://sprites/player2/run-7.png" id="8_jhhb7"]
-[ext_resource type="Texture2D" uid="uid://xx6q7qcds0b3" path="res://sprites/player2/run-8.png" id="9_7c13n"]
 [ext_resource type="Texture2D" uid="uid://blw8hmjh2tv3n" path="res://sprites/health_bar_decoration.png" id="11_p5rpj"]
 [ext_resource type="Script" path="res://scripts/HealthBar.gd" id="11_x0jwl"]
 [ext_resource type="Texture2D" uid="uid://ci5xml7hu2p6s" path="res://sprites/health_bar.png" id="12_gjm7t"]
 [ext_resource type="Script" path="res://scences/Background.gd" id="15_mrwuy"]
 [ext_resource type="Script" path="res://scripts/Popup.gd" id="16_mvtah"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q1xx"]
-radius = 26.7749
-height = 103.706
+[sub_resource type="AtlasTexture" id="AtlasTexture_33irk"]
+atlas = ExtResource("2_ka43i")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7qmi"]
+atlas = ExtResource("2_ka43i")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsfh8"]
+atlas = ExtResource("2_ka43i")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h61xa"]
+atlas = ExtResource("2_ka43i")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7g5n"]
+atlas = ExtResource("2_ka43i")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1vvl"]
+atlas = ExtResource("2_4kjqc")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kp80"]
+atlas = ExtResource("2_4kjqc")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k83q"]
+atlas = ExtResource("2_4kjqc")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obkus"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdqqb"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_digvy"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ia88"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha3f8"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nm3s"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj67n"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivvw5"]
+atlas = ExtResource("2_vhve1")
+region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b028r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1ppwx")
+"texture": SubResource("AtlasTexture_33irk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_o74oc")
+"texture": SubResource("AtlasTexture_w7qmi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_pvur6")
+"texture": SubResource("AtlasTexture_fsfh8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_rhdte")
+"texture": SubResource("AtlasTexture_h61xa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_u0jhs")
+"texture": SubResource("AtlasTexture_g7g5n")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1vvl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_qq3ea")
+"texture": SubResource("AtlasTexture_6kp80")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_jhhb7")
+"texture": SubResource("AtlasTexture_5k83q")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obkus")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_7c13n")
+"texture": SubResource("AtlasTexture_mdqqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_digvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ia88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha3f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nm3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj67n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivvw5")
 }],
 "loop": true,
 "name": &"run",
-"speed": 15.0
+"speed": 20.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q1xx"]
+radius = 26.7749
+height = 103.706
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pippq"]
 size = Vector2(1170, 20)
@@ -2307,17 +2400,15 @@ cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
 position = Vector2(-250, 70)
 script = ExtResource("1_8xh6m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(5, 12)
-rotation = 0.397935
-shape = SubResource("CapsuleShape2D_4q1xx")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-scale = Vector2(2, 2)
+position = Vector2(1, -25)
+scale = Vector2(1.42273, 1.41854)
 sprite_frames = SubResource("SpriteFrames_b028r")
-animation = &"run"
-frame = 1
-frame_progress = 0.761653
+animation = &"dead"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(2, 12)
+shape = SubResource("CapsuleShape2D_4q1xx")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -2495,10 +2586,11 @@ text = "     SPACE = Jump
 2x SPACE = Double Jump"
 clip_text = true
 
+[connection signal="gameOver" from="CharacterBody2D" to="CharacterBody2D" method="_on_game_over"]
 [connection signal="gameOver" from="CharacterBody2D" to="Score/Control/score" method="_on_character_body_2d_game_over"]
 [connection signal="gameOver" from="CharacterBody2D" to="Popup" method="_on_character_body_2d_game_over"]
-[connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
 [connection signal="hit" from="CharacterBody2D" to="Healthnode/Healthbar" method="_on_character_body_2d_hit"]
+[connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
 [connection signal="timeout" from="Score/Control/score/scoreTimer" to="Score/Control/score" method="_on_score_timer_timeout"]
 [connection signal="pressed" from="Popup/MarginContainer2/Button" to="Popup" method="_on_button_pressed"]
 [connection signal="pressed" from="Popup/MarginContainer3/Button2" to="Popup" method="_on_button_2_pressed"]

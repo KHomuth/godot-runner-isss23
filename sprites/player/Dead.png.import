@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c46oihob0ey3s"
-path="res://.godot/imported/wall land 48x48.png-5107cef8f03abba1091b36b64a426512.ctex"
+uid="uid://dlj5v8gr2ptly"
+path="res://.godot/imported/Dead.png-e198887fab78669fd1d09f4d384947b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/wall land 48x48.png"
-dest_files=["res://.godot/imported/wall land 48x48.png-5107cef8f03abba1091b36b64a426512.ctex"]
+source_file="res://sprites/player/Dead.png"
+dest_files=["res://.godot/imported/Dead.png-e198887fab78669fd1d09f4d384947b4.ctex"]
 
 [params]
 

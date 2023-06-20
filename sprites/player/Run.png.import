@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqlnlix0kkhkw"
-path="res://.godot/imported/run cycle 48x48.png-f71950d39fef5e51b0901280210baba1.ctex"
+uid="uid://5tlvgif3ncto"
+path="res://.godot/imported/Run.png-2ec3522fe7850277faea9d171f9b78ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/run cycle 48x48.png"
-dest_files=["res://.godot/imported/run cycle 48x48.png-f71950d39fef5e51b0901280210baba1.ctex"]
+source_file="res://sprites/player/Run.png"
+dest_files=["res://.godot/imported/Run.png-2ec3522fe7850277faea9d171f9b78ba.ctex"]
 
 [params]
 
