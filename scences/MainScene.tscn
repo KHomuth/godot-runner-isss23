@@ -2493,6 +2493,7 @@ text = "     SPACE = Jump
 2x SPACE = Double Jump"
 clip_text = true
 
+[connection signal="gameOver" from="CharacterBody2D" to="Score/Control/score" method="_on_character_body_2d_game_over"]
 [connection signal="gameOver" from="CharacterBody2D" to="Popup" method="_on_character_body_2d_game_over"]
 [connection signal="hit" from="CharacterBody2D" to="HealthBar" method="_on_character_body_2d_hit"]
 [connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]

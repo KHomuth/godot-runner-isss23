@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://78qc6611tp6e"]
+
+[ext_resource type="Script" path="res://scences/Highscore_menu.gd" id="1_jqmft"]
+[ext_resource type="Script" path="res://scripts/ScoreSceneTextLabel.gd" id="2_4g2aj"]
+[ext_resource type="Texture2D" uid="uid://g7gundn6epcx" path="res://sprites/snowymountains.png" id="2_7x4h5"]
+[ext_resource type="Script" path="res://scripts/MarginContainer.gd" id="2_w3x8q"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jqmft")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -68.0
+offset_right = 118.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_w3x8q")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+fit_content = true
+script = ExtResource("2_4g2aj")
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[node name="Snowymountains" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(574, 328)
+scale = Vector2(0.616307, 0.634943)
+texture = ExtResource("2_7x4h5")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
