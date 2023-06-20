@@ -2418,33 +2418,6 @@ shape = SubResource("CapsuleShape2D_4q1xx")
 position = Vector2(87, 146)
 shape = SubResource("RectangleShape2D_pippq")
 
-[node name="Score" type="Node2D" parent="."]
-position = Vector2(135, -60)
-
-[node name="Control" type="Control" parent="Score"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -574.0
-offset_top = -326.0
-offset_right = 576.0
-offset_bottom = 322.0
-
-[node name="score" type="Label" parent="Score/Control"]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 54.0
-offset_right = 237.0
-offset_bottom = 80.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("FontFile_248up")
-theme_override_font_sizes/font_size = 30
-text = "0"
-script = ExtResource("3_x8284")
-
-[node name="scoreTimer" type="Timer" parent="Score/Control/score"]
-wait_time = 0.1
-autostart = true
-
 [node name="Healthnode" type="Node2D" parent="."]
 position = Vector2(-484, -300)
 scale = Vector2(3, 3)
@@ -2559,26 +2532,34 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "MAIN MENU"
 
-[node name="Controls" type="Node2D" parent="."]
-position = Vector2(111, -62)
-
-[node name="Control" type="Control" parent="Controls"]
+[node name="Hud" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -593.0
-offset_top = -318.0
-offset_right = 557.0
-offset_bottom = 330.0
-grow_horizontal = 0
+anchors_preset = 0
+offset_left = -394.0
+offset_top = -332.0
+offset_right = -354.0
+offset_bottom = -292.0
 
-[node name="score" type="Label" parent="Controls/Control"]
-layout_mode = 0
-offset_left = 904.0
-offset_top = 37.0
-offset_right = 1240.0
-offset_bottom = 125.0
+[node name="score" type="Label" parent="Hud"]
+layout_mode = 2
+offset_right = 192.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_248up")
+theme_override_font_sizes/font_size = 30
+text = "0"
+script = ExtResource("3_x8284")
+
+[node name="scoreTimer" type="Timer" parent="Hud/score"]
+wait_time = 0.1
+autostart = true
+
+[node name="controls" type="Label" parent="Hud"]
+layout_mode = 2
+offset_left = 816.0
+offset_top = -11.0
+offset_right = 1152.0
+offset_bottom = 77.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("FontFile_bwlsq")
 theme_override_font_sizes/font_size = 20
@@ -2587,10 +2568,10 @@ text = "     SPACE = Jump
 clip_text = true
 
 [connection signal="gameOver" from="CharacterBody2D" to="CharacterBody2D" method="_on_game_over"]
-[connection signal="gameOver" from="CharacterBody2D" to="Score/Control/score" method="_on_character_body_2d_game_over"]
+[connection signal="gameOver" from="CharacterBody2D" to="Hud/score" method="_on_character_body_2d_game_over"]
 [connection signal="gameOver" from="CharacterBody2D" to="Popup" method="_on_character_body_2d_game_over"]
 [connection signal="hit" from="CharacterBody2D" to="Healthnode/Healthbar" method="_on_character_body_2d_hit"]
 [connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
-[connection signal="timeout" from="Score/Control/score/scoreTimer" to="Score/Control/score" method="_on_score_timer_timeout"]
 [connection signal="pressed" from="Popup/MarginContainer2/Button" to="Popup" method="_on_button_pressed"]
 [connection signal="pressed" from="Popup/MarginContainer3/Button2" to="Popup" method="_on_button_2_pressed"]
+[connection signal="timeout" from="Hud/score/scoreTimer" to="Hud/score" method="_on_score_timer_timeout"]
