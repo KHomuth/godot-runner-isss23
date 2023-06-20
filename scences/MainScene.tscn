@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=25 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
 [ext_resource type="Texture2D" uid="uid://dsvvnlbo1t8y6" path="res://sprites/player2/run-1.png" id="2_1ppwx"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bnwkgji8ucats" path="res://sprites/player2/run-6.png" id="7_qq3ea"]
 [ext_resource type="Texture2D" uid="uid://p3wil1ony32w" path="res://sprites/player2/run-7.png" id="8_jhhb7"]
 [ext_resource type="Texture2D" uid="uid://xx6q7qcds0b3" path="res://sprites/player2/run-8.png" id="9_7c13n"]
+[ext_resource type="Texture2D" uid="uid://blw8hmjh2tv3n" path="res://sprites/health_bar_decoration.png" id="11_p5rpj"]
 [ext_resource type="Script" path="res://scripts/HealthBar.gd" id="11_x0jwl"]
+[ext_resource type="Texture2D" uid="uid://ci5xml7hu2p6s" path="res://sprites/health_bar.png" id="12_gjm7t"]
 [ext_resource type="Script" path="res://scences/Background.gd" id="15_mrwuy"]
 [ext_resource type="Script" path="res://scripts/Popup.gd" id="16_mvtah"]
 
@@ -1178,9 +1180,6 @@ cache/0/31/0/kerning_overrides/29/0 = Vector2(0, 0)
 cache/0/31/0/kerning_overrides/30/0 = Vector2(0, 0)
 cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf6pa"]
-bg_color = Color(0.996078, 0, 0.207843, 1)
-
 [sub_resource type="FontFile" id="FontFile_bwlsq"]
 face_index = null
 embolden = null
@@ -2329,7 +2328,7 @@ position = Vector2(87, 146)
 shape = SubResource("RectangleShape2D_pippq")
 
 [node name="Score" type="Node2D" parent="."]
-position = Vector2(111, -62)
+position = Vector2(135, -60)
 
 [node name="Control" type="Control" parent="Score"]
 layout_mode = 3
@@ -2355,15 +2354,18 @@ script = ExtResource("3_x8284")
 wait_time = 0.1
 autostart = true
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -465.0
-offset_top = -291.0
-offset_right = -341.0
-offset_bottom = -264.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_gf6pa")
+[node name="Healthnode" type="Node2D" parent="."]
+position = Vector2(-484, -300)
+scale = Vector2(3, 3)
+
+[node name="Healthbar" type="TextureProgressBar" parent="Healthnode"]
+offset_right = 87.0
+offset_bottom = 23.0
 step = 50.0
 value = 100.0
-show_percentage = false
+texture_under = ExtResource("11_p5rpj")
+texture_progress = ExtResource("12_gjm7t")
+texture_progress_offset = Vector2(14, 0)
 script = ExtResource("11_x0jwl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -2495,8 +2497,8 @@ clip_text = true
 
 [connection signal="gameOver" from="CharacterBody2D" to="Score/Control/score" method="_on_character_body_2d_game_over"]
 [connection signal="gameOver" from="CharacterBody2D" to="Popup" method="_on_character_body_2d_game_over"]
-[connection signal="hit" from="CharacterBody2D" to="HealthBar" method="_on_character_body_2d_hit"]
 [connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
+[connection signal="hit" from="CharacterBody2D" to="Healthnode/Healthbar" method="_on_character_body_2d_hit"]
 [connection signal="timeout" from="Score/Control/score/scoreTimer" to="Score/Control/score" method="_on_score_timer_timeout"]
 [connection signal="pressed" from="Popup/MarginContainer2/Button" to="Popup" method="_on_button_pressed"]
 [connection signal="pressed" from="Popup/MarginContainer3/Button2" to="Popup" method="_on_button_2_pressed"]
