@@ -68,3 +68,7 @@ func _physics_process(delta):
 
 func reset_color():
 	$AnimatedSprite2D.modulate = _colorModulate
+
+
+func _on_game_over():
+	pass # Replace with function body.
