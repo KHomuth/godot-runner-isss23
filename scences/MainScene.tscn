@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=36 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
 [ext_resource type="Texture2D" uid="uid://dobsudss4v7ja" path="res://sprites/player/Jump.png" id="2_4kjqc"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/HealthBar.gd" id="11_x0jwl"]
 [ext_resource type="Texture2D" uid="uid://ci5xml7hu2p6s" path="res://sprites/health_bar.png" id="12_gjm7t"]
 [ext_resource type="Script" path="res://scences/Background.gd" id="15_mrwuy"]
+[ext_resource type="AudioStream" uid="uid://c4eq8pugbag52" path="res://sounds/background.mp3" id="16_hshnl"]
 [ext_resource type="Script" path="res://scripts/Popup.gd" id="16_mvtah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33irk"]
@@ -326,6 +327,11 @@ theme_override_font_sizes/font_size = 20
 text = "     SPACE = Jump
 2x SPACE = Double Jump"
 clip_text = true
+
+[node name="Background_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_hshnl")
+volume_db = -16.0
+autoplay = true
 
 [connection signal="gameOver" from="CharacterBody2D" to="CharacterBody2D" method="_on_game_over"]
 [connection signal="gameOver" from="CharacterBody2D" to="Popup" method="_on_character_body_2d_game_over"]
