@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://vh0vtmdxn8x0"]
+[gd_scene load_steps=35 format=3 uid="uid://vh0vtmdxn8x0"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_8xh6m"]
 [ext_resource type="Texture2D" uid="uid://dobsudss4v7ja" path="res://sprites/player/Jump.png" id="2_4kjqc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_x8284"]
 [ext_resource type="Script" path="res://scences/Camera2D.gd" id="4_8hipw"]
 [ext_resource type="Texture2D" uid="uid://g7gundn6epcx" path="res://sprites/snowymountains.png" id="5_4vrj7"]
+[ext_resource type="AudioStream" uid="uid://bsf1q7q8dnybe" path="res://sounds/hit.wav" id="5_j5fs1"]
 [ext_resource type="Texture2D" uid="uid://di0vhfd4cg2v0" path="res://sprites/white.png" id="6_d7hg2"]
 [ext_resource type="Texture2D" uid="uid://blw8hmjh2tv3n" path="res://sprites/health_bar_decoration.png" id="11_p5rpj"]
 [ext_resource type="Script" path="res://scripts/HealthBar.gd" id="11_x0jwl"]
@@ -190,6 +191,9 @@ texture_progress = ExtResource("12_gjm7t")
 texture_progress_offset = Vector2(14, 0)
 script = ExtResource("11_x0jwl")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Healthnode/Healthbar"]
+stream = ExtResource("5_j5fs1")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(93, -55)
 script = ExtResource("4_8hipw")
@@ -324,8 +328,8 @@ text = "     SPACE = Jump
 clip_text = true
 
 [connection signal="gameOver" from="CharacterBody2D" to="CharacterBody2D" method="_on_game_over"]
-[connection signal="gameOver" from="CharacterBody2D" to="Hud/score" method="_on_character_body_2d_game_over"]
 [connection signal="gameOver" from="CharacterBody2D" to="Popup" method="_on_character_body_2d_game_over"]
+[connection signal="gameOver" from="CharacterBody2D" to="Hud/score" method="_on_character_body_2d_game_over"]
 [connection signal="hit" from="CharacterBody2D" to="Healthnode/Healthbar" method="_on_character_body_2d_hit"]
 [connection signal="hit" from="CharacterBody2D" to="ObsitcalSpawner" method="_on_character_body_2d_hit"]
 [connection signal="pressed" from="Popup/MarginContainer2/Button" to="Popup" method="_on_button_pressed"]
