@@ -108,7 +108,6 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(delta)
 	if(timer.is_stopped()):	
 		if alreadySpawned >= 24 :
 			obsticleLimitTop = 12
