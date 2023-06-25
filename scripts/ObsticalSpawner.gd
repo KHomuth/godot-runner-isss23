@@ -108,6 +108,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(delta)
 	if(timer.is_stopped()):	
 		if alreadySpawned >= 24 :
 			obsticleLimitTop = 12
@@ -125,165 +126,165 @@ func _process(delta):
 		if randomObstical == 0:
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1000, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 		
 		elif randomObstical == 1:
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1000, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 		
 		elif randomObstical == 2:
-			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
-			obsticles.front().position = Vector2(1000, -300)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
+			obsticles.front().position = Vector2(1000, 15)
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 		elif randomObstical == 3:
 			obsticles.push_front(_createObsiticalAnim(animationBear, Vector2(4,4),bearScale))
 			obsticles.front().position = Vector2(1000, 0)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			
 		elif randomObstical == 4:
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1000, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1150, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1300, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 		elif randomObstical == 5:
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1000, -150)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1000, -300)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 		
 		elif randomObstical == 6:
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1000, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1100, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1200, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 		
 		elif randomObstical == 7:
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1000, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1150, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1300, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 		elif randomObstical == 8:
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1000, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBear, Vector2(4,4),bearScale))
 			obsticles.front().position = Vector2(1200, 0)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 		
 		elif randomObstical == 9:
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1000, -300)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1200, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBear, Vector2(4,4),bearScale))
 			obsticles.front().position = Vector2(1400, 0)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 		elif randomObstical == 10:
 			obsticles.push_front(_createObsiticalAnim(animationBear, Vector2(4,4),bearScale))
 			obsticles.front().position = Vector2(1000, 0)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1000, -300)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 		
 		elif randomObstical == 11:
 			obsticles.push_front(_createObsiticalAnim(animationBear, Vector2(4,4),bearScale))
 			obsticles.front().position = Vector2(1150, 0)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1000, -300)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1300, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 		
 		elif randomObstical == 12:
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1000, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1150, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationWolf, Vector2(2.5,2.5),wolfScale))
 			obsticles.front().position = Vector2(1300, 15)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1080, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 			
 			obsticles.push_front(_createObsiticalAnim(animationBat, Vector2(2.5,2.5),batScale))
 			obsticles.front().position = Vector2(1220, -140)
-			obsticles.front().linear_velocity = Vector2((-10000 * delta) * speed ,0) 
+			obsticles.front().linear_velocity = Vector2((-160) * speed ,0) 
 			add_child(obsticles.front())
 				
 		alreadySpawned = alreadySpawned + 1
